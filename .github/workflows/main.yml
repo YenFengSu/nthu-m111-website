@@ -1,0 +1,22 @@
+name: 🚀 Deploy website on main
+
+on: 
+    push:
+        branches: [ main ]
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      with:
+        server: m111.nthu.edu.tw
+        username: s111062516
+        password: ${{ secrets.FTP_PASSWORD }}
+        dry-run: true
