@@ -19,4 +19,9 @@ jobs:
         server: m111.nthu.edu.tw
         username: s111062516
         password: ${{ secrets.FTP_PASSWORD }}
-        dry-run: true
+        exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            README.md
+        dry-run: false
